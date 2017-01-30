@@ -180,7 +180,7 @@ function addUser(source, sourceUser) {
 var app = express();
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);
-    app.set('views', __dirname + '/views');
+    app.set('views', __dirname + '/src/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
@@ -190,8 +190,8 @@ app.configure(function () {
     app.use(express.session());
     app.use(everyauth.middleware(app));
     app.use(app.router);
-    app.use(require('less-middleware')({ src: __dirname + '/public' }));
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(require('less-middleware')({ src: __dirname + '/src/public' }));
+    app.use(express.static(path.join(__dirname, 'src/public')));
 });
 
 app.configure('development', function () {
@@ -203,8 +203,8 @@ app.configure('development', function () {
 * -------------------------------------------------------------------------------------------------
 * include a route file for each major area of functionality in the site
 **/
-require('./routes/home')(app);
-require('./routes/account')(app);
+require('./src/routes/home')(app);
+require('./src/routes/account')(app);
 
 
 var server = http.createServer(app);
