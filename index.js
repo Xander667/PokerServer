@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 80;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -43,8 +43,7 @@ router.route('/hand')
     })
 
     .get(function (req, res) {
-        var hand = ['Ks', 'Qs'];
-        hand.id = "6";
+        var hand = ['king diamond', 'two heart'];
         res.send(hand);
     })
 
