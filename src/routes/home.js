@@ -14,4 +14,14 @@ module.exports = function (app) {
     app.get('/about', function (req, res) {
         res.render('about', { title: 'About Me.  ' })
     });
+            // about page
+    app.get('/api', function (req, res) {
+        res.json({ message: 'hooray! welcome to our api!' });
+    });
+
+    
+    app.get('/api/hand', function (req, res) {
+        var hand = ['king diamond', 'two heart'];
+        res.send(hand);
+    })
 }
